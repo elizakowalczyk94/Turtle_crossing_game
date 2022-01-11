@@ -20,7 +20,7 @@ screen.onkey(user_turtle_obj.move_up, "Up")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(0.3)
     screen.update()
 
     cars.create_car()
@@ -29,5 +29,9 @@ while game_is_on:
     # detect score
     if user_turtle_obj.ycor() > 280:
         print("score")
+
+    # detect collision with car
+    if cars.detect_collision(user_turtle_obj):
+        game_is_on = False
 
 screen.exitonclick()
