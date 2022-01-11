@@ -30,11 +30,8 @@ class Car(Turtle):
         for car in self.cars_list:
             car.forward(MOVE_DISTANCE)
 
-    def detect_collision(self, turtle):
-        car_dist = []
-        for elem in self.cars_list:
-            car_dist.append(elem.distance(turtle))
-        if any(car_dist) < 20:
-            return False
-        else:
-            return True
+    def detect_collision(self, player):
+        cars_dist = []
+        for car in self.cars_list:
+            cars_dist.append(car.distance(player))
+        return list(filter(lambda x: x < 30, cars_dist))
