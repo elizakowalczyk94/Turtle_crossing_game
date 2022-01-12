@@ -4,14 +4,14 @@ import random
 COLORS = ["yellow", "gold", "orange", "red", "maroon", "violet", "magenta", "purple", "navy", "blue", "skyblue", "cyan",
           "turquoise", "lightgreen", "green", "darkgreen", "chocolate", "brown", "gray"]
 
-MOVE_DISTANCE = 5
-MOVE_INCREMENT = 10
+MOVE_INCREMENT = 2
 
 
 class Car(Turtle):
 
     def __init__(self):
         super().__init__()
+        self.move_distance = 5
         self.cars_list = []
 
     def create_car(self):
@@ -28,10 +28,13 @@ class Car(Turtle):
 
     def move_all(self):
         for car in self.cars_list:
-            car.forward(MOVE_DISTANCE)
+            car.forward(self.move_distance)
 
     def detect_collision(self, player):
         cars_dist = []
         for car in self.cars_list:
             cars_dist.append(car.distance(player))
         return list(filter(lambda x: x < 30, cars_dist))
+
+    def speed_up(self):
+        self.move_distance += MOVE_INCREMENT

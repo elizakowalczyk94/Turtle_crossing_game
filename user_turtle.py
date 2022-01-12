@@ -16,3 +16,6 @@ class UserTurtle(Turtle):
 
     def move_up(self):
         self.forward(MOVE_DISTANCE)
+
+    def start_again(self):
+        self.goto(0, -280)
