@@ -34,7 +34,7 @@ class Car(Turtle):
         cars_dist = []
         for car in self.cars_list:
             cars_dist.append(car.distance(player))
-        return list(filter(lambda x: x < 30, cars_dist))
+        return list(filter(lambda x: x < 20, cars_dist))
 
     def speed_up(self):
         self.move_distance += MOVE_INCREMENT
