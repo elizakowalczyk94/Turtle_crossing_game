@@ -29,6 +29,7 @@ while game_is_on:
     if user_turtle_obj.ycor() > 280:
         scoreboard.level_up()
         user_turtle_obj.start_again()
+        cars.speed_up()
 
     # detect collision with car
     if cars.detect_collision(user_turtle_obj):
